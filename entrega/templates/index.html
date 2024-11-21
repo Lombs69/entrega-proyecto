@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">SJ Store</div>
+        <nav>
+            <a href="/tienda">Tienda</a>
+            
+            <a href="/opiniones">Comunidad</a>
+            
+            
+            <a href="#">Sign in</a>
+            <a href="/register">Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+    <main class="main-content">
+        <h1>SJ Store</h1>
+        <p>Ropa de calidad y accesible para todos</p>
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre / Correo </label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+     
+     <div class="register-btn">
+        <p>¿No tienes una cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></p>
+    </div>
+
+</div>
+        </div>
+    </main>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div>
+            <strong>Sobre nosotros</strong>
+            <a href="#">Información</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Comunidad</a>
+            <a href="#">Garantía</a>
+            <a href="#">Términos y condiciones</a>
+        </div>
+        <div>
+            <strong>Tienda</strong>
+            <a href="#">Gorras</a>
+            <a href="#">Camisetas</a>
+            <a href="#">Zapatos</a>
+            <a href="#">Gafas</a>
+            <a href="#">Bolsos</a>
+        </div>
+        <div>
+            <strong>Comunidad</strong>
+            <a href="#">Blog</a>
+            <a href="#">Últimas noticias</a>
+            <a href="#">Soporte</a>
+            <a href="#">Recursos</a>
+        </div>
+        <div class="social-icons">
+            <a href="#">📷</a>
+            <a href="#">📹</a>
+            <a href="#">🔗</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar - {{ product[1] }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Detalles del Producto - {{ product[1] }}</h1>
+    </header>
+    
+    <main class="product-container">
+       
+        
+        <div class="product-card">
+            <img src="{{ product[5] }}" alt="{{ product[1] }}" class="product-image">
+            <h2 class="product-name">{{ product[1] }}</h2>
+            <p class="product-description">{{ product[2] }}</p>
+            <p class="product-price">$ {{ product[3]|int }}</p> 
+            <p class="product-stock">Stock: {{ product[4] }}</p>
+
+            
+            <form action="/comprar/{{ product[0] }}" method="post">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" name="cantidad" value="1" min="1" required>
+                <br>
+                <label for="direccion_envio">Dirección de Envío:</label>
+                <input type="text" name="direccion_envio" required>
+                <br>
+                <label for="metodo_pago">Método de Pago:</label>
+                <select name="metodo_pago" required>
+                    <option value="tarjeta">Tarjeta de Crédito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="efectivo">Efectivo</option>
+                </select>
+                <br><br>
+                <button type="submit">Comprar</button>
+                
+            </form>
+            <a href="/tienda">Volver</a>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <strong>Sobre nosotros</strong>
+            <a href="#">Información</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Comunidad</a>
+            <a href="#">Garantía</a>
+            <a href="#">Términos y condiciones</a>
+        </div>
+        <div>
+            <strong>Tienda</strong>
+            <a href="#">Gorras</a>
+            <a href="#">Camisetas</a>
+            <a href="#">Zapatos</a>
+            <a href="#">Gafas</a>
+            <a href="#">Bolsos</a>
+        </div>
+        <div>
+            <strong>Comunidad</strong>
+            <a href="#">Blog</a>
+            <a href="#">Últimas noticias</a>
+            <a href="#">Soporte</a>
+            <a href="#">Recursos</a>
+        </div>
+        <div class="social-icons">
+            <a href="#">📷</a>
+            <a href="#">📹</a>
+            <a href="#">🔗</a>
+        </div>
+    </footer>
+</body>
+</html>

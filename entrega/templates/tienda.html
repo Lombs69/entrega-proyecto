@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>JP Style - Productos</title>
+    
+</head>
+<body>
+
+    <header>
+        <div>SJ Store - Catálogo de Productos</div>
+        <nav>
+            <a  href="/tienda">Tienda</a>
+            <a href="/opiniones">Comunidad</a>
+            <a href="#">Servicio al cliente</a>
+            
+           
+        </nav>
+
+        <div class="container">
+            
+            <div class="user-info">
+                <span>{{ username }}</span> 
+                <div class="dropdown">
+                    <span>▼</span> 
+                    <div class="dropdown-content">
+                        <a id="cerrar_sesión" href="{{ url_for('logout') }}">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <main class="product-container">
+        {% for product in products %}
+        <div class="product-card">
+            <a href="{{ url_for('product_details', product_id=product[0]) }}">
+                <img src="{{ product[5] }}" alt="{{ product[1] }}" class="product-image">
+                <h2 class="product-name">{{ product[1] }}</h2>
+                <p class="product-price">$ {{ product[3]|int }}</p>
+                <p class="product-stock">Stock: {{ product[4] }}</p>
+                <p class="product-description">{{ product[2] }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <div>
+            <strong>Sobre nosotros</strong>
+            <a href="#">Información</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Comunidad</a>
+            <a href="#">Garantía</a>
+            <a href="#">Términos y condiciones</a>
+        </div>
+        <div>
+            <strong>Tienda</strong>
+            <a href="#">Gorras</a>
+            <a href="#">Camisetas</a>
+            <a href="#">Zapatos</a>
+            <a href="#">Gafas</a>
+            <a href="#">Bolsos</a>
+        </div>
+        <div>
+            <strong>Comunidad</strong>
+            <a href="#">Blog</a>
+            <a href="#">Últimas noticias</a>
+            <a href="#">Soporte</a>
+            <a href="#">Recursos</a>
+        </div>
+        <div class="social-icons">
+            <a href="#">📷</a>
+            <a href="#">📹</a>
+            <a href="#">🔗</a>
+        </div>
+    </footer>
+</body>
+</html>
